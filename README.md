@@ -1,12 +1,13 @@
 # mysql
 Experiment 3
-AIM:- Write queries to execute following DDL commands :
+
+    AIM:- Write queries to execute following DDL commands :
 CREATE :Create the structure of a table with at least five columns
 ALTER: Change the size of a particular column.
 •	Add a new column to the existing table.
 •	Remove a column from the table.
 DROP: Destroy the table along with its data.
-Procedure: -
+            Procedure: -
 1.	Create a database .
 a.	create DATABASE assignment;
 2.	Create 
@@ -15,16 +16,41 @@ a.	CREATE TABLE student(USN INT, SName VARCHAR(14),
 address VARCHAR(40),Phone VARCHAR(12), Gender VARCHAR(6));
 3.	To view the table:
 a.	SELECT * FROM  student;
+b.	 
 4.	ALTER
 Change the size of a particular column.
 a.	ALTER TABLE student modify Gender varchar(10);
 Add a new column to existing Table.
 a.	ALTER Table student ADD email varchar(20);					
+b.	 
 5.	Delete a column from Existing Table;
-a.	alter Table student  DROP column email;													
+a.	alter Table student  DROP column email;	
+ 															
 6.	DROP:
 Destroy  TABLE  Along with its data
 a.	drop table student;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Experiment-4
@@ -60,6 +86,7 @@ CREATE table CLASS(
 •	INSERT into CLASS  VALUES(32021,3);
 •	INSERT into CLASS  VALUES(42021,4);
 •	INSERT into CLASS  VALUES(52021,5);
+
 d.	SUBJECT
 CREATE table SUBJECT(
     SUBCODE INT,Title VARCHAR(10),SEM INT, Credits INT
@@ -83,7 +110,7 @@ CREATE table IAMARKS(
 2.	UPDATE
 Modify data  in single  and multiple column in a table;
 Single :
-•	update  student set SNAME='Bhawya garg' where usn = 12021
+•	update  student set SNAME='Kamar Alam' where usn = 12021
 •	 
 Multiple:
 •	update  student set address='Delhi' where gender = 'f'
@@ -94,6 +121,22 @@ Selective:
 •	 
 All record:
 •	DELETE FROM Student;  .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Experiment 5
 AIM:- Write queries to execute following DML command :
 SELECT: 
@@ -106,21 +149,30 @@ column or more than one column.
 Procedure:-
 1.	Retrieve the entire content of the table
 SELECT * From iamarks;
+ 
 2.	Retrieve the selective contents ( based on provided condition) from a table.
 Retrieve contents from a table based on various operator i.e string operators,
+
 a.	Logical operator
 SELECT * from iamarks where test1=87 OR test2=90; 
+  
 b.	String
 SELECT SUBSTRING(USN, 1, 5) AS ExtractString
 FROM iamarks;
+ 
+
+
 3.	Sort the data  in ascending and descending  order  in a table  on the basis of  one or  more than one column
 Ascending
 	SELECT  * from iamarks order by finalia ;
+	 
 	Descending
 		Select * From iamarks order by finalia DESC;
+		 
 	BY Using Multiple column
 		SELECT  * from iamarks order by finalia ,subcode ;
 		 
+
 
 Experiment 6
 Aim:-Create a table using  following integrity constraints:
@@ -171,9 +223,43 @@ CREATE TABLE default_constrain
 	    EmployeeDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
 •	Now insert data and leave employee date as empty.
+
+
+
+
+
 •	Default Value get Inserted Automatically i.e City (Delhi)
+ 
+
 •	Alter table add Foreign Key
 •	ALTER TABLE iamarks add FOREIGN KEY (USN) REFERENCES class(USN);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Experiment 7
@@ -182,19 +268,53 @@ Experiment 7
 Procedure:-
 SUM:
 •	Select sum(test1) from iamarks;
+
+
+
+
+
 AVERAGE:
 •	Select avg(test1) from iamarks;
+
+
+
+
+
    MIN:
 •	Select MIN(test1) from iamarks;
-  MAX:
-•	Select Max(test1) from iamarks;	
 
+
+
+
+
+
+                MAX:
+•	Select Max(test1) from iamarks;	
 
 
 Experiment 8
 AIM: Retrieve data from a table using alias names .
 Procedure:-
 SELECT test1 +1 as 'unit1' FROM iamarks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Experiment 9
 Aim: Retrieve data of a table using nested queries.
@@ -204,14 +324,37 @@ SELECT (Title) FROM subject where SUBCODE>14 IN (
         );
 
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Experiment 10
 AIM: Retrieve data from more than one table using inner join, left outer, right outer and full outer joins
 Inner join:
-SELECT iamarks.test1,iamarks.test3,subject.title FROM iamarks inner JOIN subject ON iamarks.SUBCODE
+SELECT iamarks.test1,iamarks.test3,subject.title FROM iamarks inner JOIN subject ON iamarks.SUBCODE;
+																																																
 Left outer join:
-SELECT iamarks.test1,iamarks.test3,subject.title FROM iamarks LEFT JOIN subject ON iamarks.SUBCODE;			
+SELECT iamarks.test1,iamarks.test3,subject.title FROM iamarks LEFT JOIN subject ON iamarks.SUBCODE;
+
+ 				
 Right Outer joint:
 SELECT iamarks.test1,iamarks.test3,subject.title FROM iamarks RIGHT JOIN subject ON iamarks.SUBCODE;
+
+
+
+
+
 Full Outer joint:
 
 
@@ -222,6 +365,21 @@ create view present as select FSName, SName from practice, demo where practice.S
 create view past as select FSName from practice where SNo>=0;
 
  
+
+Experiment 12
+    AIM:- Create a index on a coloumn of a table.
+
+
+
+
+
+
+
+
+
+
+
+
 Experiment 13
 AIM: Consider the Insurance company’s Database given below. The primary keys are 
 underlined and the data typesare specified. 
@@ -247,29 +405,55 @@ create table person(driver_id varchar(10),name varchar(10),address varchar(10),p
 create table accident(report_number int,accd_date date,location varchar(10),primary key(report_number));
  create table owns(driver_id varchar(10),regno varchar(10),primary key(driver_id,regno),foreign key(driver_id) references person(driver_id),foreign key(regno) references car(regno));
  create table participated(driver_id varchar(10),regno varchar(10),report_number int,damage_amount int,primary key(driver_id,regno,report_number),foreign key(driver_id) references person(driver_id),foreign key(regno) references car(regno),foreign key(report_number) references accident(report_number));
+
+
 insert into person values('D192','&name','delhi');
 insert into person values('D193','kamar','burari');
 insert into person values('D194','shruti','rohini');
 insert into person values('D195','Sahil','sultan');
 insert into person values('D196','karan','china');
+
+ 
+
 insert into  car values('DL8182','Ertiga',2022);
 insert into  car values('DL9258','swift',2022);
 insert into  car values('DL2457','bMWx5',2017);
 insert into  car values('DL1257','mercdes',2012);
 insert into  car values('DL1221','Rollce',2012);
+
+ 
 insert into accident values(1234,'2022-07-12','Delhi');
 insert into accident values(1235,'2022-06-11','up');
 insert into accident values(1236,'2022-01-11','banglore');
 insert into accident values(1237,'2022-01-11','banglore');
 insert into accident values(1238,'2021-03-11','chennai');
+ 
 insert into owns values('D190','dl8213');
 insert into owns values('D193','dl9113');
 insert into owns values('D194','dl9116');
 insert into owns values('D195','dl9616');
 insert into owns values('D196','dl9617');
+
+
+
+
+
+
+
 select count(distinct o.driver_id) as People from owns o,participated p,accident a where a.accd_date like
  '2008' and o.regno=p.regno and p.report_number=a.report_number;
+
+ 
 select count(0) as Totalcars from car c,participated p where c.regno=p.regno and c.model='swift';
+
+
+
+
+
+
+
+
+
 
 
 Experiment-14
@@ -344,19 +528,89 @@ insert into lss_rec_ values(08,"1996-08-10",108,3);
 insert into lss_rec_ values(09,"1995-05-11",109,2);
 insert into lss_rec_ values(010,"1995-05-12",110,1);
 insert into lss_rec_ values(011,"1995-05-12",111,11);
+
 (iii)Display all records for all tables
 •	Retrieve records from student table.
 •	SELECT * from student;
+
+ 
 •	Retrieve records from membership  table.
 SELECT * from membership;
+
+ 
 •	Retrieve records from lss_rec_  table.	
-•	SELECT * from lss_rec_;															
+•	SELECT * from lss_rec_;
+
+
+		
+
+
+																	
 •	Retrieve records from book_  table.
-SELECT * from book_;																																																																							(iv) (iv)List all the student names with their membership numbers.
-select stud_name, mem_no from student s, membership m where m.stud_no=s.stud_no;																																																																																	
+SELECT * from book_;
+
+
+																																																																																						
+(iv) List all the student names with their membership numbers.
+select stud_name, mem_no from student s, membership m where m.stud_no=s.stud_								
+
 (v) List all the issues for the current date with student and Book names.
+
 (vi) List the details of students who borrowed book whose author is Elmarsi & Navathe 
 (vii) Give a count of how many books have been bought by each student 
 (viii) Give a list of books taken by student with stud_no as 1005 
 (ix) Delete the List of books details which are issued as of today 
-(x) Create a view which lists out the iss_no, iss _date, stud_name, book Name
+(x) Create a view which lists out the iss_no, iss _date, stud_name, book Nam
+Experiment-15
+AIM:- Use the relations below to write SQL queries to solve the business problems specified. CLIENT (clientno#,name, client_referred_by#)
+ORDER (orderno#, clientno#, order_date, empid#)
+ORDER_LINE (orderno#, order line number#, item_number#, no_of_items, item_ cost,shipping_date)
+ITEM (item_number#, item_type, cost)
+EMPLOYEE (empid#, emp_type#, deptno, salary, firstname, lastname) Notes:
+d.	Column followed by # is the primary key of the table.
+e.	Each client may be referred by another client. If so, the client number of the referring client is stored in referred_by.
+f.	The total cost for a particular order line = no_of_items * item_cost.c.
+Write queries for the following
+(xiii)	Create all the above tables.
+(xiv)	Insert at least five records.
+(xv)	Display all the rows and columns in the CLIENT table. Sort by client name in reverse alphabetical order.
+(xvi)	Display the item number and total cost for each order line (total cost = no of items X item cost). Name the calculated column TOTAL COST.
+(xvii)	Display all the client numbers in the ORDER table. Remove duplicates.
+(xviii)	Display the order number and client number from the ORDER table. Output the result in the format. Client <clientno> ordered <orderno>
+(xix)	Display full details from the ORDER_LINE table where the item number is (first condition) between 1 and 200 (no > or < operators) OR the item number is greater than1000 AND (second condition) the item cost is not in the list 1000, 2000, 3000 OR the order number is not equal to 1000.
+(xx)	Display the client name and order date for all orders.
+(xxi)	Repeat query (6) but also display all clients who have never ordered anything.
+(xxii)	Display the client name and order date for all orders using the join keywords.
+(xxiii)	Display the client name and order date for all orders using the JOIN method.
+(xxiv)	Display the client number, order date and shipping date for all orders where the shipping date is between three and six months after the order date.
+(i)
+
+
+
+
+
+
+
+ 
+
+Adding Keys
+
+
+(ii)
+ 
+
+   
+
+(iii)
+
+(iv)
+
+(v)
+
+ 
+(vi)
+
+(vii)
+
+(viii)	
+
